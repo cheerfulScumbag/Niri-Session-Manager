@@ -171,6 +171,45 @@ class SessionManager:
         logger.info(f"Saved {len(state)} windows to {STATE_FILE}")
         return len(state)
 
+    async def _place_window(self, win_id, target_output, target_idx):
+        if target_output:
+            proc = await asyncio.create_subprocess_exec("niri", "msg", "action", "move-window-to-monitor", "--id", str(win_id), str(target_output))
+            await proc.wait()
+            
+        if target_idx is None:
+            return
+            
+        # Determine its current idx on the monitor it landed on
+        windows = await self.ipc.get_windows()
+        workspaces = await self.ipc.get_workspaces()
+        
+        try:
+            curr_ws_id = next(w["workspace_id"] for w in (windows if isinstance(windows, list) else []) if w.get("id") == win_id)
+            current_idx = next(ws["idx"] for ws in (workspaces if isinstance(workspaces, list) else []) if ws.get("id") == curr_ws_id)
+        except StopIteration:
+            logger.warning(f"Could not find current idx for window {win_id}")
+            return
+            
+        if current_idx == target_idx:
+            return
+            
+        logger.debug(f"Adjusting window {win_id} from idx {current_idx} to {target_idx}")
+        
+        # Focus is required for move-window-to-workspace-down/up 
+        proc = await asyncio.create_subprocess_exec("niri", "msg", "action", "focus-window", "--id", str(win_id))
+        await proc.wait()
+        
+        if current_idx < target_idx:
+            for _ in range(target_idx - current_idx):
+                proc = await asyncio.create_subprocess_exec("niri", "msg", "action", "move-window-to-workspace-down")
+                await proc.wait()
+                await asyncio.sleep(0.05)
+        elif current_idx > target_idx:
+            for _ in range(current_idx - target_idx):
+                proc = await asyncio.create_subprocess_exec("niri", "msg", "action", "move-window-to-workspace-up")
+                await proc.wait()
+                await asyncio.sleep(0.05)
+
     async def restore_session(self):
         if not STATE_FILE.exists():
             logger.warning("No state file found to restore.")
@@ -225,8 +264,10 @@ class SessionManager:
                     line = await reader.readline()
                     if not line: break
                     event = json.loads(line)
-                    if "WindowOpened" in event:
-                        new_win = event["WindowOpened"]["window"]
+                    
+                    window_event = event.get("WindowOpenedOrChanged") or event.get("WindowOpened")
+                    if window_event:
+                        new_win = window_event["window"]
                         opened_app_id = new_win.get("app_id")
                         
                         if opened_app_id and expected_windows.get(opened_app_id):
@@ -237,12 +278,8 @@ class SessionManager:
                             
                             logger.info(f"Window mapped: {opened_app_id} (ID: {win_id}) -> output {outp}, idx {idx}")
                             
-                            if outp:
-                                proc = await asyncio.create_subprocess_exec("niri", "msg", "action", "move-window-to-monitor", "--id", str(win_id), str(outp))
-                                await proc.wait()
-                            if idx is not None:
-                                proc = await asyncio.create_subprocess_exec("niri", "msg", "action", "move-window-to-workspace", "--window-id", str(win_id), str(idx))
-                                await proc.wait()
+                            # Place window sequentially
+                            await self._place_window(win_id, outp, idx)
                                 
                             mapped += 1
         except asyncio.TimeoutError:
@@ -250,6 +287,47 @@ class SessionManager:
         finally:
             writer.close()
             await writer.wait_closed()
+
+    async def auto_save_loop(self):
+        """Listens for window/workspace events and triggers auto-save with a debounce."""
+        try:
+            reader, writer = await self.ipc.listen_events()
+        except Exception as e:
+            logger.error(f"Failed to connect to Niri event stream for auto-save: {e}")
+            return
+
+        save_task = None
+
+        async def debounced_save():
+            await asyncio.sleep(2.0)  # Debounce delay
+            try:
+                await self.capture_state()
+            except Exception as e:
+                logger.error(f"Auto-save failed: {e}")
+
+        logger.info("Auto-save loop started.")
+        try:
+            while True:
+                line = await reader.readline()
+                if not line:
+                    break
+                try:
+                    event = json.loads(line)
+                    # Check for relevance: anything modifying windows or workspaces
+                    if any(k in event for k in ["WindowOpened", "WindowClosed", "WindowOpenedOrChanged", "WorkspaceActivated", "WindowMovedToWorkspace"]):
+                        if save_task and not save_task.done():
+                            save_task.cancel()
+                        save_task = asyncio.create_task(debounced_save())
+                except json.JSONDecodeError:
+                    continue
+                except Exception as e:
+                    logger.debug(f"Error handling event: {e}")
+        except asyncio.CancelledError:
+            pass
+        finally:
+            writer.close()
+            await writer.wait_closed()
+            logger.info("Auto-save loop stopped.")
 
 # --- IPC Daemon ---
 
@@ -314,6 +392,9 @@ async def run_daemon():
     server = await asyncio.start_unix_server(handle_client, path=str(DAEMON_SOCKET))
     logger.info(f"NSM Daemon started at {DAEMON_SOCKET}")
     
+    # Start auto-save background loop
+    auto_save_task = asyncio.create_task(manager.auto_save_loop())
+    
     # Handle termination
     loop = asyncio.get_running_loop()
     stop = asyncio.Future()
@@ -330,13 +411,7 @@ async def run_daemon():
 
     async with server:
         await stop
-        # Perform auto-save before exit
-        try:
-            logger.info("Auto-saving session before exit...")
-            await manager.capture_state()
-        except Exception as e:
-            logger.error(f"Failed to auto-save: {e}")
-
+        auto_save_task.cancel()
         server.close()
         await server.wait_closed()
 
