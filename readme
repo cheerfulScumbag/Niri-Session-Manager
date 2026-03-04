@@ -1,0 +1,32 @@
+Usage Instructions
+1. Start the Daemon
+Run the daemon in the background (or add it to your Niri startup):
+
+bash
+./nsm.py --daemon &
+2. Save a Session
+To capture the current state:
+
+bash
+./nsm.py --save
+The state is saved to ~/.cache/niri-session.json.
+
+3. Restore a Session
+To restore all windows to their correct workspaces:
+
+bash
+./nsm.py --restore
+Recommended Niri Keybinds
+Add these to your config.kdl to make saving and restoring seamless:
+
+kdl
+binds {
+    // Save session snapshot
+    "Mod+Ctrl+S" { spawn "/home/kenn/Projects/Niri-Session-Manager/nsm.py" "--save"; }
+    // Restore session snapshot
+    "Mod+Ctrl+R" { spawn "/home/kenn/Projects/Niri-Session-Manager/nsm.py" "--restore"; }
+}
+Verification Results
+ CLI Parsing: Verified via --help.
+ Executability: Fixed permissions with chmod +x.
+ Architecture: Unified the best parts of all 4 previous scripts.

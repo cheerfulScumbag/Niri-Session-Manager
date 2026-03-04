@@ -1,0 +1,14 @@
+[Unit]
+Description=Niri Session Manager Daemon
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/kenn/Projects/Niri-Session-Manager/nsm.py --daemon
+Restart=on-failure
+RestartSec=5
+# Ensure we have the Wayland socket available
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target
