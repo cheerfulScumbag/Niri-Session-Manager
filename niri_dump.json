@@ -1,0 +1,729 @@
+{
+  "windows": [
+    {
+      "id": 6,
+      "title": "Welcome  \u2014 Kate",
+      "app_id": "org.kde.kate",
+      "pid": 60856,
+      "workspace_id": 2,
+      "is_focused": false,
+      "is_floating": false,
+      "is_urgent": false,
+      "layout": {
+        "pos_in_scrolling_layout": [
+          4,
+          1
+        ],
+        "tile_size": [
+          945.0,
+          1013.0
+        ],
+        "window_size": [
+          945,
+          1013
+        ],
+        "tile_pos_in_workspace_view": null,
+        "window_offset_in_tile": [
+          0.0,
+          0.0
+        ]
+      },
+      "focus_timestamp": {
+        "secs": 20627,
+        "nanos": 563160066
+      }
+    },
+    {
+      "id": 5,
+      "title": "~",
+      "app_id": "kitty",
+      "pid": 60736,
+      "workspace_id": 2,
+      "is_focused": false,
+      "is_floating": false,
+      "is_urgent": false,
+      "layout": {
+        "pos_in_scrolling_layout": [
+          3,
+          1
+        ],
+        "tile_size": [
+          945.0,
+          1013.0
+        ],
+        "window_size": [
+          945,
+          1013
+        ],
+        "tile_pos_in_workspace_view": null,
+        "window_offset_in_tile": [
+          0.0,
+          0.0
+        ]
+      },
+      "focus_timestamp": {
+        "secs": 20622,
+        "nanos": 698115110
+      }
+    },
+    {
+      "id": 3,
+      "title": "FileZilla",
+      "app_id": "filezilla",
+      "pid": 57213,
+      "workspace_id": 2,
+      "is_focused": false,
+      "is_floating": false,
+      "is_urgent": false,
+      "layout": {
+        "pos_in_scrolling_layout": [
+          1,
+          1
+        ],
+        "tile_size": [
+          1920.0,
+          1033.0
+        ],
+        "window_size": [
+          1920,
+          1033
+        ],
+        "tile_pos_in_workspace_view": null,
+        "window_offset_in_tile": [
+          0.0,
+          0.0
+        ]
+      },
+      "focus_timestamp": {
+        "secs": 20612,
+        "nanos": 850968400
+      }
+    },
+    {
+      "id": 2,
+      "title": "niri \u2014 Dolphin",
+      "app_id": "org.kde.dolphin",
+      "pid": 57173,
+      "workspace_id": 1,
+      "is_focused": false,
+      "is_floating": false,
+      "is_urgent": false,
+      "layout": {
+        "pos_in_scrolling_layout": [
+          1,
+          1
+        ],
+        "tile_size": [
+          931.8518518518516,
+          1000.0
+        ],
+        "window_size": [
+          932,
+          1000
+        ],
+        "tile_pos_in_workspace_view": null,
+        "window_offset_in_tile": [
+          0.0,
+          0.0
+        ]
+      },
+      "focus_timestamp": {
+        "secs": 20607,
+        "nanos": 528207368
+      }
+    },
+    {
+      "id": 4,
+      "title": "Niri-Session-Manager - Antigravity - nsm.py",
+      "app_id": "antigravity",
+      "pid": 60077,
+      "workspace_id": 2,
+      "is_focused": true,
+      "is_floating": false,
+      "is_urgent": false,
+      "layout": {
+        "pos_in_scrolling_layout": [
+          2,
+          1
+        ],
+        "tile_size": [
+          1920.0,
+          1033.0
+        ],
+        "window_size": [
+          1920,
+          1033
+        ],
+        "tile_pos_in_workspace_view": null,
+        "window_offset_in_tile": [
+          0.0,
+          0.0
+        ]
+      },
+      "focus_timestamp": {
+        "secs": 20692,
+        "nanos": 230511090
+      }
+    }
+  ],
+  "workspaces": [
+    {
+      "id": 3,
+      "idx": 2,
+      "name": null,
+      "output": "DP-3",
+      "is_urgent": false,
+      "is_active": false,
+      "is_focused": false,
+      "active_window_id": null
+    },
+    {
+      "id": 1,
+      "idx": 1,
+      "name": null,
+      "output": "DP-3",
+      "is_urgent": false,
+      "is_active": true,
+      "is_focused": false,
+      "active_window_id": 2
+    },
+    {
+      "id": 2,
+      "idx": 1,
+      "name": null,
+      "output": "DP-1",
+      "is_urgent": false,
+      "is_active": true,
+      "is_focused": true,
+      "active_window_id": 4
+    },
+    {
+      "id": 4,
+      "idx": 2,
+      "name": null,
+      "output": "DP-1",
+      "is_urgent": false,
+      "is_active": false,
+      "is_focused": false,
+      "active_window_id": null
+    }
+  ],
+  "outputs": {
+    "DP-3": {
+      "name": "DP-3",
+      "make": "Acer Technologies",
+      "model": "XF272U",
+      "serial": "0x0131AF81",
+      "physical_size": [
+        600,
+        340
+      ],
+      "modes": [
+        {
+          "width": 2560,
+          "height": 1440,
+          "refresh_rate": 143999,
+          "is_preferred": true
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "refresh_rate": 119998,
+          "is_preferred": false
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "refresh_rate": 59951,
+          "is_preferred": false
+        },
+        {
+          "width": 2560,
+          "height": 1440,
+          "refresh_rate": 59951,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 120000,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 119880,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 1680,
+          "height": 1050,
+          "refresh_rate": 59954,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 1024,
+          "refresh_rate": 75025,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 1024,
+          "refresh_rate": 60020,
+          "is_preferred": false
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "refresh_rate": 59887,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 800,
+          "refresh_rate": 59810,
+          "is_preferred": false
+        },
+        {
+          "width": 1152,
+          "height": 864,
+          "refresh_rate": 75000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "refresh_rate": 75029,
+          "is_preferred": false
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "refresh_rate": 70069,
+          "is_preferred": false
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "refresh_rate": 60004,
+          "is_preferred": false
+        },
+        {
+          "width": 832,
+          "height": 624,
+          "refresh_rate": 74551,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 75000,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 72188,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 60317,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 56250,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 576,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 576,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 75000,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 72809,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 66667,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 400,
+          "refresh_rate": 70082,
+          "is_preferred": false
+        }
+      ],
+      "current_mode": 0,
+      "is_custom_mode": false,
+      "vrr_supported": true,
+      "vrr_enabled": false,
+      "logical": {
+        "x": 1920,
+        "y": 0,
+        "width": 1896,
+        "height": 1066,
+        "scale": 1.35,
+        "transform": "Normal"
+      }
+    },
+    "DP-1": {
+      "name": "DP-1",
+      "make": "Philips Consumer Electronics Company",
+      "model": "PHL 273V7",
+      "serial": "UK01937028018",
+      "physical_size": [
+        600,
+        340
+      ],
+      "modes": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 60000,
+          "is_preferred": true
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 1680,
+          "height": 1050,
+          "refresh_rate": 59954,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 1024,
+          "refresh_rate": 75025,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 1024,
+          "refresh_rate": 60020,
+          "is_preferred": false
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "refresh_rate": 59887,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "refresh_rate": 75029,
+          "is_preferred": false
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "refresh_rate": 70069,
+          "is_preferred": false
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "refresh_rate": 60004,
+          "is_preferred": false
+        },
+        {
+          "width": 832,
+          "height": 624,
+          "refresh_rate": 74551,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 75000,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 72188,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 60317,
+          "is_preferred": false
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "refresh_rate": 56250,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 576,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 576,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 576,
+          "refresh_rate": 50000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 75000,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 72809,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 66667,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 60000,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 640,
+          "height": 480,
+          "refresh_rate": 59940,
+          "is_preferred": false
+        },
+        {
+          "width": 720,
+          "height": 400,
+          "refresh_rate": 70082,
+          "is_preferred": false
+        }
+      ],
+      "current_mode": 1,
+      "is_custom_mode": false,
+      "vrr_supported": false,
+      "vrr_enabled": false,
+      "logical": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080,
+        "scale": 1.0,
+        "transform": "Normal"
+      }
+    }
+  }
+}
